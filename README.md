@@ -62,10 +62,15 @@ Confirm it’s running and GPU-enabled by checking the logs and `nvidia-smi`.
 
 ## Setting Up Excel
 
-1. Open **CAL4M_demo.xlsm**, or create a blank `.xlsm` workbook.  
-2. Press `Alt+F11` to open the VBA editor.  
-3. Import **CAL4M.bas** (`File → Import File…`).  
-4. Save and close the editor, ensure macros are enabled.
+There are two ways to get the CAL4M function into your workbook:
+
+Preconfigured demo: Open **CAL4M_demo.xlsm**, enable macros, and you’re ready to use =CAL4M(...)—no further setup required.
+
+Manual import: In a blank or existing .xlsm workbook:
+
+1. Press `Alt+F11` to open the VBA editor.  
+2. Import **CAL4M.bas** (`File → Import File…`).  
+3. Save and close the editor, ensure macros are enabled.
 
 ## Usage
 
