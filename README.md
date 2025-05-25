@@ -9,8 +9,12 @@ Once set up, simply type:
 ```excel
 =CAL4M("Your question or prompt here")
 ```
+or
+```excel
+=CAL4M(A2)
+```
 
-in a cell, and Excel will return the model’s response (with line breaks and sanitized text).
+in a cell, and Excel will return the model’s response (with line breaks and sanitized text to prevent formula injection).
 
 ## Files in This Repository
 
@@ -84,8 +88,7 @@ Where `A2` contains your prompt. The function will:
 
 1. Poll the Ollama server until ready (up to 30 s).  
 2. Send a chat-completion request with a system instruction for terse output.  
-3. Replace literal `
-` with Excel line breaks.  
+3. Replace literal \n with Excel line breaks.  
 4. Sanitize leading characters to prevent formula injection.
 
 ## Further Improvements
