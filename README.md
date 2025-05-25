@@ -4,16 +4,20 @@
 
 Imagine unlocking a new dimension of spreadsheet power—where your cells can not only perform calculations but execute entire AI-driven workflows locally. From automating custom data summaries and forecasting trends, to orchestrating multi-step analyses, all without recurring API bills or risking exposure of sensitive information, CAL4M empowers you to harness AI securely on your own hardware.
 
-**CAL4M** is an Excel macro (User-Defined Function) that lets you **C**all **A** **L**ocal **L**arge **L**anguage **M**odel (CAL4M) directly from any cell. It uses [Ollama](https://ollama.com) as the backend LLM server, running on your machine (CPU or GPU).
+**CAL4M** is an Excel macro (User-Defined Function) that lets you **C**all **A** **L**ocal **L**arge **L**anguage **M**odel (CAL4M) directly from any cell. It uses [Ollama](https://ollama.com) as the backend LLM server, running on your machine (CPU or GPU). CAL4M auto-sizes its reply to the width of the calling cell, caches answers in-memory for the duration of the Excel session, and is non-volatile (it recalculates only when the prompt argument changes).
 
 Once set up, simply type:
 
 ```excel
-=CAL4M("Your question or prompt here")
+=CAL4M("Give me a type of tree")
 ```
 or
 ```excel
 =CAL4M(A2)
+```
+or
+```excel
+=CAL4M("What is the colour of " & A2)
 ```
 
 in a cell, and Excel will return the model’s response (with line breaks and sanitized text to prevent formula injection).
@@ -53,7 +57,7 @@ This installs `ollama` in `/usr/local/bin` and sets up a systemd service on Linu
 Choose and download a model, for example:
 
 ```bash
-ollama pull llama2
+ollama pull tinyllama:latest
 ```
 
 ### 3. Serve the Model
@@ -92,6 +96,12 @@ Where `A2` contains your prompt. The function will:
 2. Send a chat-completion request with a system instruction for terse output.  
 3. Replace literal \n with Excel line breaks.  
 4. Sanitize leading characters to prevent formula injection.
+
+### How sizing works
+* CAL4M reads `Application.Caller.ColumnWidth`.
+* It sets `max_tokens` ≈ (column-width × 0.9 ÷ 4).
+* Answers longer than the cell width are automatically truncated by the model.
+
 
 ## Further Improvements
 
