@@ -2,6 +2,8 @@
 
 ## Overview
 
+Imagine unlocking a new dimension of spreadsheet power—where your cells can not only perform calculations but execute entire AI-driven workflows locally. From automating custom data summaries and forecasting trends, to orchestrating multi-step analyses, all without recurring API bills or risking exposure of sensitive information, CAL4M empowers you to harness AI securely on your own hardware.
+
 **CAL4M** is an Excel macro (User-Defined Function) that lets you **C**all **A** **L**ocal **L**arge **L**anguage **M**odel (CAL4M) directly from any cell. It uses [Ollama](https://ollama.com) as the backend LLM server, running on your machine (CPU or GPU).
 
 Once set up, simply type:
