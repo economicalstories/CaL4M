@@ -1,4 +1,4 @@
-# CAL4M: Local LLM formula in Excel
+# CAL4M: Call A Local Low-Latency Lamnguage Model in Excel
 
 ## Overview
 
