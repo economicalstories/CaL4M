@@ -1,10 +1,10 @@
-# CAL4M: Local LLM Integration in Excel
+# CAL4M: Local LLM formula in Excel
 
 ## Overview
 
 Imagine unlocking a new dimension of spreadsheet power—where your cells can not only perform calculations but execute entire AI-driven workflows locally. From automating custom data summaries and forecasting trends, to orchestrating multi-step analyses, all without recurring API bills or risking exposure of sensitive information, CAL4M empowers you to harness AI securely on your own hardware.
 
-**CAL4M** is an Excel macro (User-Defined Function) that lets you **C**all **A** **L**ocal **L**arge **L**anguage **M**odel (CAL4M) directly from any cell. It uses [Ollama](https://ollama.com) as the backend LLM server, running on your machine (CPU or GPU). CAL4M auto-sizes its reply to the width of the calling cell, caches answers in-memory for the duration of the Excel session, and is non-volatile (it recalculates only when the prompt argument changes).
+**CAL4M** is an Excel macro (User-Defined Function) that lets you **C**all **A** **L**ocal **L**ow **L**atency **L**anguage **M**odel (CAL4M) directly from any cell. It uses [Ollama](https://ollama.com) as the backend LLM server, running on your machine (CPU or GPU). CAL4M auto-sizes its reply to the width of the calling cell, caches answers in-memory for the duration of the Excel session, and is non-volatile (it recalculates only when the prompt argument changes).
 
 Once set up, simply type:
 
@@ -102,16 +102,6 @@ Where `A2` contains your prompt. The function will:
 * It sets `max_tokens` ≈ (column-width × 0.9 ÷ 4).
 * Answers longer than the cell width are automatically truncated by the model.
 
-
-## Further Improvements
-
-- **Caching**: Store recent responses in VBA or in a hidden sheet to avoid duplicate API calls.  
-- **Batch Processing**: Use Python + [XLWings](https://xlwings.org) for reading/writing whole columns at once.  
-- **Model Selection**: Add an optional parameter to choose between multiple pulled models.  
-- **Timeout Tuning**: Expose `maxWait` as an optional argument or global setting.  
-- **Non-Blocking UI**: Provide a button-triggered Sub to avoid freezing Excel during calls.  
-- **Alternative Backends**: Support `llama.cpp`, HF TGI, or other local LLM servers via configurable endpoints.  
-- **Error Logging**: Write errors to a hidden worksheet or external log file for debugging.
 
 ---
 
