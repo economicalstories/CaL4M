@@ -113,6 +113,13 @@ Where `A2` contains your prompt. The function will:
 * CAL4M reads `Application.Caller.ColumnWidth`.
 * Answers longer than the cell width are automatically truncated by the model.
 
+## Security & Responsibility
+
+CAL4M is a proof-of-concept / personal-productivity tool.  
+It was not designed for secure or classified data environments, safety-critical systems, or confidential production data.  
+• Run it only on machines and datasets you are comfortable processing with a local LLM.  
+• Review all VBA and model output before relying on it for business-critical decisions.  
+You assume full responsibility for how you use the code.
 
 ---
 
