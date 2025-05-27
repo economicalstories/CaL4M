@@ -1,8 +1,8 @@
-# CAL4M: Call A Local Low-Latency Lamnguage Model in Excel
+# CAL4M: Call A Local Low-Latency Language Model in Excel
 
 ## Overview
 
-Unlock a whole new tier of spreadsheet intelligence—use a local LLM just like any built-in Excel function. **CAL4M** is an User-Defined Function for Excel that lets you **C**all **A** **L**ocal **L**ow **L**atency **L**anguage **M**odel (CAL4M) directly from any cell. 
+Unlock a whole new tier of spreadsheet intelligence—use a local LLM just like any built-in Excel function. **CAL4M** is a User-Defined Function for Excel that lets you **C**all **A** **L**ocal **L**ow **L**atency **L**anguage **M**odel (CAL4M) directly from any cell. 
 
 With CAL4M, your cells can call your LLM directly in formulas, fire off hundreds of prompts in parallel via Excel’s recalculation engine, and chain results through dependent workflows and pivots—no chat window required. 
 
@@ -23,7 +23,14 @@ or
 ```excel
 =CAL4M("What is the colour of " & A2)
 ```
-
+or
+```excel
+=CAL4M("Is shark aquatic?","boolean")    → TRUE
+```
+or
+```excel
+=CAL4M("Who wrote Hamlet?","word")       → Shakespeare
+```
 in a cell, and Excel will return the model’s response (with line breaks and sanitized text to prevent formula injection).
 
 ## Files in This Repository
@@ -58,7 +65,7 @@ This installs `ollama` in `/usr/local/bin` and sets up a systemd service on Linu
 
 ### 2. Pull a Model
 
-Choose and download a model (model choice is important here - models that are good at verbose chat aren't necessarily good at rapid and terse excel-style responses), for example:
+Choose and download a model. For terse, single-word or one-liner replies, we recommend a Q4-quantised 2–4 B model (e.g. phi3.5:3.8b) for fastest sub-second responses:
 
 ```bash
 ollama pull phi3.5:3.8b
