@@ -54,10 +54,10 @@ This installs `ollama` in `/usr/local/bin` and sets up a systemd service on Linu
 
 ### 2. Pull a Model
 
-Choose and download a model, for example:
+Choose and download a model (model choice is important here - models that are good at verbose chat aren't necessarily good at rapid and terse excel-style responses), for example:
 
 ```bash
-ollama pull tinyllama:latest
+ollama pull phi3.5:3.8b
 ```
 
 ### 3. Serve the Model
