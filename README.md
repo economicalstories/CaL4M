@@ -2,11 +2,12 @@
 
 ## Overview
 
+
 Unlock a whole new tier of spreadsheet intelligence—use a local LLM just like any built-in Excel function. **CAL4M** is a User-Defined Function for Excel that lets you **C**all **A** **L**ocal **L**ow **L**atency **L**anguage **M**odel (CAL4M) directly from any cell. 
 
 With CAL4M, your cells can call your LLM directly in formulas, fire off hundreds of prompts in parallel via Excel’s recalculation engine, and chain results through dependent workflows and pivots—no chat window required. 
 
-It uses [Ollama](https://ollama.com) as the backend LLM server, running on your machine (GPU highly recommended). Everything runs on a small, quantized model on your own machine, so you get sub-second, zero-cost inference with full data privacy and no recurring API bills. 
+It uses [Ollama](https://ollama.com) as the backend LLM server, running on your machine (GPU highly recommended). Everything runs on a small, quantized model offline on your own machine, so you get sub-second, zero-cost inference with full data privacy and no recurring API bills. 
 
 CAL4M auto-sizes its reply to the width of the calling cell, caches answers in-memory for the duration of the Excel session, and is non-volatile (it recalculates only when the prompt argument changes). The LLM has access only to the data provided in the formula, not the whole spreadsheet.
 
