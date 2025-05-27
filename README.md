@@ -2,9 +2,13 @@
 
 ## Overview
 
-Imagine unlocking a new dimension of spreadsheet power—where your cells can not only perform calculations but execute entire AI-driven workflows locally. From automating custom data summaries and forecasting trends, to orchestrating multi-step analyses, all without recurring API bills or risking exposure of sensitive information, CAL4M empowers you to harness AI securely on your own hardware.
+Unlock a whole new tier of spreadsheet intelligence—use a local LLM just like any built-in Excel function. **CAL4M** is an User-Defined Function for Excel that lets you **C**all **A** **L**ocal **L**ow **L**atency **L**anguage **M**odel (CAL4M) directly from any cell. 
 
-**CAL4M** is an Excel macro (User-Defined Function) that lets you **C**all **A** **L**ocal **L**ow **L**atency **L**anguage **M**odel (CAL4M) directly from any cell. It uses [Ollama](https://ollama.com) as the backend LLM server, running on your machine (CPU or GPU). CAL4M auto-sizes its reply to the width of the calling cell, caches answers in-memory for the duration of the Excel session, and is non-volatile (it recalculates only when the prompt argument changes).
+With CAL4M, your cells can call your LLM directly in formulas, fire off hundreds of prompts in parallel via Excel’s recalculation engine, and chain results through dependent workflows and pivots—no chat window required. 
+
+It uses [Ollama](https://ollama.com) as the backend LLM server, running on your machine (GPU highly recommended). Everything runs on a small, quantized model on your own machine, so you get sub-second, zero-cost inference with full data privacy and no recurring API bills. 
+
+CAL4M auto-sizes its reply to the width of the calling cell, caches answers in-memory for the duration of the Excel session, and is non-volatile (it recalculates only when the prompt argument changes). The LLM has access only to the data provided in the formula, not the whole spreadsheet.
 
 Once set up, simply type:
 
@@ -99,7 +103,6 @@ Where `A2` contains your prompt. The function will:
 
 ### How sizing works
 * CAL4M reads `Application.Caller.ColumnWidth`.
-* It sets `max_tokens` ≈ (column-width × 0.9 ÷ 4).
 * Answers longer than the cell width are automatically truncated by the model.
 
 
